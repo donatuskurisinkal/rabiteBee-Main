@@ -1,0 +1,198 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@layer base {
+  :root {
+    /* RabitBee Light Theme - White with Navy Blue & Coral Red Accents */
+    --background: 210 25% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 2 94% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 50% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 92%;
+    --muted-foreground: 215 25% 35%;
+
+    --accent: 215 60% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 82%;
+    --input: 0 0% 100%;
+    --ring: 2 94% 61%;
+
+    --radius: 0.75rem;
+    
+    /* Navy Blue Sidebar with High Contrast */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 2 94% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 45% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 30% 25%;
+    --sidebar-ring: 2 94% 61%;
+
+    /* Premium Effects - Blue & Red Mix */
+    --glow-primary: 2 94% 61%;
+    --glow-secondary: 2 100% 70%;
+    --glow-blue: 215 60% 55%;
+    --glass-bg: 0 0% 100%;
+    --glass-border: 215 25% 85%;
+  }
+
+  .dark {
+    /* RabitBee Dark Theme (Optional) */
+    --background: 215 48% 18%;
+    --foreground: 0 0% 100%;
+
+    --card: 215 40% 24%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 220 45% 20%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 2 94% 61%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 35% 28%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 30% 26%;
+    --muted-foreground: 0 0% 85%;
+
+    --accent: 2 94% 61%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 40%;
+    --input: 215 35% 28%;
+    --ring: 2 94% 61%;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 2 94% 61%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 45% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 30% 25%;
+    --sidebar-ring: 2 94% 61%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans text-foreground;
+    background: linear-gradient(135deg, hsl(210, 30%, 96%) 0%, hsl(215, 35%, 97%) 50%, hsl(210, 30%, 96%) 100%);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-sans font-semibold tracking-tight;
+  }
+  
+  /* Premium Card with Subtle Blue Border */
+  .glass-card {
+    @apply relative overflow-hidden rounded-xl border transition-all duration-300;
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+    box-shadow: 0 2px 8px 0 rgba(33, 71, 125, 0.06),
+                0 0 0 1px rgba(33, 71, 125, 0.04);
+  }
+  
+  .glass-card:hover {
+    border-color: hsl(215, 60%, 70%);
+    box-shadow: 0 4px 16px 0 rgba(33, 71, 125, 0.12),
+                0 0 0 1px hsl(215, 60%, 70% / 0.3);
+  }
+  
+  /* Navy Blue Sidebar - High Contrast */
+  .glass-sidebar {
+    @apply border-r transition-all duration-300;
+    background: hsl(var(--sidebar-background));
+    border-color: hsl(var(--sidebar-border));
+    color: hsl(var(--sidebar-foreground));
+  }
+  
+  /* Premium Button for Light Theme */
+  .glow-button {
+    @apply relative overflow-hidden transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--glow-secondary)) 100%);
+    box-shadow: 0 2px 8px hsl(var(--primary) / 0.25),
+                0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glow-button:hover {
+    box-shadow: 0 4px 16px hsl(var(--primary) / 0.35),
+                0 2px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  /* Neon Glow Effect */
+  .neon-glow {
+    animation: neonPulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes neonPulse {
+    0%, 100% {
+      box-shadow: 0 0 10px hsl(var(--glow-primary) / 0.5),
+                  0 0 20px hsl(var(--glow-primary) / 0.3),
+                  0 0 30px hsl(var(--glow-primary) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 15px hsl(var(--glow-primary) / 0.7),
+                  0 0 30px hsl(var(--glow-primary) / 0.5),
+                  0 0 45px hsl(var(--glow-primary) / 0.3);
+    }
+  }
+  
+  /* Icon Glow on Hover */
+  .icon-glow {
+    @apply transition-all duration-300;
+  }
+  
+  .icon-glow:hover {
+    filter: drop-shadow(0 0 8px hsl(var(--glow-primary)));
+    transform: scale(1.1);
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Hide scrollbar for mobile menu */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

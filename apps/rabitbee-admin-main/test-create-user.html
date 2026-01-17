@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Aronk User</title>
+</head>
+<body>
+    <h1>Create Aronk User</h1>
+    <button onclick="createUser()">Create User</button>
+    <div id="result"></div>
+    
+    <script>
+        async function createUser() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Creating user...';
+            
+            try {
+                const response = await fetch('https://elcbugfsnqitkkgvhapa.supabase.co/functions/v1/create-aronk-user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+                
+                const data = await response.json();
+                resultDiv.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
+            } catch (error) {
+                resultDiv.innerHTML = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

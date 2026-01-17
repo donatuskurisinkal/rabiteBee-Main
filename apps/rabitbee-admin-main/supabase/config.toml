@@ -1,0 +1,108 @@
+
+project_id = "elcbugfsnqitkkgvhapa"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[auth]
+enabled = true
+port = 54324
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://localhost:3000"]
+jwt_expiry = 3600
+refresh_token_rotation_enabled = true
+refresh_token_reuse_interval = 10
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+
+[[functions]]
+app_id = "e62e24f6-b2dc-48a2-950b-f87a5df591a4"
+name = "admin-create-user"
+verify_jwt = false
+
+[[functions]]
+name = "calculate-delivery-charge"
+verify_jwt = true
+
+[[functions]]
+name = "get-cart-items"
+verify_jwt = true
+
+[[functions]]
+name = "get-active-promo-codes"
+verify_jwt = true
+
+[[functions]]
+name = "create-razorpay-order"
+verify_jwt = true
+
+[[functions]]
+name = "initiate-upi-payment"
+verify_jwt = true
+
+[[functions]]
+name = "create-order-food-items"
+verify_jwt = true
+
+[[functions]]
+name = "create-order"
+verify_jwt = true
+
+[[functions]]
+name = "send-push-notification"
+verify_jwt = false
+
+[[functions]]
+name = "get-delivery-agent-metadata"
+verify_jwt = true
+
+[[functions]]
+name = "update-delivery-agent-online-status"
+verify_jwt = true
+
+[[functions]]
+name = "get-delivery-agent-orders"
+verify_jwt = true
+
+[[functions]]
+name = "reject-order"
+verify_jwt = true
+
+[[functions]]
+name = "accept-order"
+verify_jwt = true
+
+[[functions]]
+name = "get-accepted-orders"
+verify_jwt = true
+
+[[functions]]
+name = "update-order-delivery-status"
+verify_jwt = false
+
+[functions.reset-user-password]
+verify_jwt = false
+
+[[functions]]
+name = "create-aronk-user"
+verify_jwt = false
+
+[[functions]]
+name = "update-payment-status"
+verify_jwt = false
+
+[[functions]]
+name = "get-delivery-agent-order-history"
+verify_jwt = true
+
+[[functions]]
+name = "search"
+verify_jwt = false
